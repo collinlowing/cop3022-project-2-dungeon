@@ -1,0 +1,1 @@
+"Chamber of Secrets" "You're in a large dark room" "" 1 -1 -1 2 "Hall of the Mountain King" "You're in a dark large room" "bronze_dagger:5" -1 0 -1 -1 "The Vault" "You're in a large room, very dark" "the_grail:100000" -1 -1 0 1
