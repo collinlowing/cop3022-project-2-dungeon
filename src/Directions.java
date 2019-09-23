@@ -1,4 +1,4 @@
-//done
+//
 public enum Directions 
 {
 	NORTH,

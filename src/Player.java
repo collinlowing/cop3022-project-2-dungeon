@@ -1,4 +1,4 @@
-//done
+//
 public class Player 
 {
 	private Item itemHeld;

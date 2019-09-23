@@ -13,12 +13,16 @@ public class Main {
 	public static void menu(Room [] room)
 	{
 		Player player = new Player(room[0]);
+		Item item;
 		int current = 0;
 		String command = "";
 		Scanner input = new Scanner(System.in);
 		
 		System.out.println("Welcome to Dungeon!");
 		System.out.println("Type h for help");
+		
+		room[current].printRoom();
+		room[current].toString();
 		do
 		{
 			System.out.println("Command: ");
@@ -41,7 +45,7 @@ public class Main {
 			{
 				case "help":
 				case "h":
-					Maze.printHelp();
+					printHelp();
 					break;
 				case "look":
 				case "l":
@@ -56,15 +60,14 @@ public class Main {
 					else
 					{
 						item = player.getInventory();
-						System.out.print(item.getDescription());
+						System.out.print(item.toString());
 					}
 					break;
 				case "go":
 				case "g":
-					if(room[current])
 					if(string[1].equalsIgnoreCase("north"))
 					{
-						//player.setCurrentRoom(currentRoom);
+						
 					}
 					if(string[1].equalsIgnoreCase("east"))
 					{
@@ -79,14 +82,25 @@ public class Main {
 						
 					}
 					player.setCurrentRoom(room[current]);
+					
+					room[current].printRoom();
+					room[current].printDesc();
 					break;
 				case "drop":
 				case "d":
-					//player.removeItem(item);
+					player.removeItem();
 					break;
 				case "take":
 				case "t":
-					//player.addItem(item);
+					item = room[current].getItem();
+					if(item.getDescription().equals(string[1]))
+					{
+						player.addItem(room[current].getItem());
+					}
+					else
+					{
+						System.err.println("ERROR: No item was found.");
+					}
 					break;
 				case "quit":
 				case "q":
@@ -95,13 +109,13 @@ public class Main {
 					System.exit(0);
 					break;
 				default:
-					System.err.print("ERROR: Please input a valid command.");
+					System.err.println("ERROR: Please input a valid command.");
 			}
 		}
 		while(!(command.equals("q")));	
 	}
 	
-	//done
+	//
 	// Prints help menu
 	public static void printHelp()
 	{
@@ -114,7 +128,7 @@ public class Main {
 		System.out.println("q(uit) - exit program");
 	}
 	
-	//done
+	//
 	// Parse command line arguments into variables
 	public static Room [] parse(String[] string)
 	{
@@ -164,7 +178,7 @@ public class Main {
 		return rooms;
 	}
 	
-	//done
+	//
 	// Parse the item and separate between description and value
 	public static void parseItem(String string, int index, Room room)
 	{
@@ -195,7 +209,7 @@ public class Main {
 		room.addItem(item[index]);
 	}
 	
-	//done
+	//
 	//setting adjacent rooms
 	public static void setAdjacent(int adj, Room [] room, int k, int j)
 	{
@@ -219,7 +233,7 @@ public class Main {
 		}
 	}
 
-		//done
+		//
 		// Check for errors that would break program
 		public static void checkErrors(String [] string)
 		{

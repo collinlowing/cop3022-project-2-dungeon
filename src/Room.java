@@ -1,4 +1,4 @@
-//done
+//
 public class Room
 {
 	private String name;
@@ -19,6 +19,11 @@ public class Room
 	public void addItem(Item item)
 	{
 		this.contents = item;
+	}
+	
+	public Item getItem()
+	{
+		return this.contents;
 	}
 	
 	public void removeItem(Item item)
