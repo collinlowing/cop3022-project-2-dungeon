@@ -1,4 +1,4 @@
-
+//done
 public class Item 
 {
 	private String description;
@@ -6,24 +6,23 @@ public class Item
 	
 	public Item(String description, int value)
 	{
-		
+		this.description = description;
+		this.value = value;
 	}
 	
 	public int getValue()
 	{
-		
-		return 0;
+		return this.value;
 	}
 	
 	public String getDescription()
 	{
 		
-		return "";
+		return this.description;
 	}
 	
 	public String toString()
 	{
-		
-		return "";
+		return this.description + ":" + this.value;
 	}
 }
